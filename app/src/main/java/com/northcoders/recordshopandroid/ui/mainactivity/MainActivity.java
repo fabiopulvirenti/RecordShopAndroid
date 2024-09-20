@@ -19,6 +19,7 @@ import com.northcoders.recordshopandroid.databinding.ActivityMainBinding;
 import com.northcoders.recordshopandroid.model.Album;
 import com.northcoders.recordshopandroid.service.AlbumRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Album> albumsFromliveData) {
 
-                albumList = albumsFromliveData;
+
+                albumList = (ArrayList<Album>)albumsFromliveData;
 
                 displayAlbumInRecyclerView();
 
