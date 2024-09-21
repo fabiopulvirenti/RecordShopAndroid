@@ -113,16 +113,16 @@
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/floatingActionButton"
-            android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/searchbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:onClick="@{clickHandler::onBackButtonClicked}ons"
-            />
+            android:src="@android:drawable/ic_menu_revert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
