@@ -59,6 +59,7 @@ public class AlbumRepository {
                 Toast.makeText(application.getApplicationContext(),
                         "Album added to database" ,
                         Toast.LENGTH_LONG).show();
+                Log.i("POST RESponse code ", Integer.toString(response.code()));
             }
 
             @Override

@@ -27,7 +27,7 @@ public class Album extends BaseObservable {
     }
 
     public Album() {
-        this.author = new Author();
+        this.author = new Author(1, "");
     }
 
 
