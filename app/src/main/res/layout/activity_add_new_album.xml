@@ -9,13 +9,18 @@
         <variable
             name="album"
             type="com.northcoders.recordshopandroid.model.Album"/>
+        
+        <variable
+            name="clickHandler"
+            type="com.northcoders.recordshopandroid.ui.mainactivity.addalbum.AddAlbumClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.mainactivity.addalbum.AddNewAlbumActivity"
-        app:layout_constraintBottom_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/editAuthor"
+        app:layout_constraintBottom_toTopOf="@id/editAuthor">
 
         <EditText
             android:id="@+id/editText"
