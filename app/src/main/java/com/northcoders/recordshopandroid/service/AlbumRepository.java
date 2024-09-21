@@ -74,6 +74,58 @@ public class AlbumRepository {
         });
 
     }
+
+    public void updateAlbum(Long id, Album album){
+        AlbumApiService apiService = RetrofitInstance.getService();
+        Call<Album> call = apiService.updateAlbum(id,album);
+
+        call.enqueue(
+                new Callback<Album>() {
+                    @Override
+                    public void onResponse(Call<Album> call, Response<Album> response) {
+                        Toast.makeText(application.getApplicationContext(),
+                                "Album updated in the database" ,
+                                Toast.LENGTH_LONG).show();
+                        Log.i("PUT Response code ", Integer.toString(response.code()));
+                    }
+
+                    @Override
+                    public void onFailure(Call<Album> call, Throwable t) {
+                        Toast.makeText(application.getApplicationContext(),
+                                "Unable to update the album in the database" ,
+                                Toast.LENGTH_LONG).show();
+                        Log.e("PUT REQ",t.getMessage());
+                    }
+                }
+        );
+
+    }
+
+    public void deleteAlbum(Long id){
+        AlbumApiService apiService = RetrofitInstance.getService();
+        Call<String> call = apiService.deleteAlbum(id);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Toast.makeText(application.getApplicationContext(),
+                        "Album deleted from the database" ,
+                        Toast.LENGTH_LONG).show();
+                Log.i("DELETE Response code ", Integer.toString(response.code()));
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(),
+                        "Unable to delete the album from the database" ,
+                        Toast.LENGTH_LONG).show();
+                Log.e("DELETE REQ",t.getMessage());
+
+            }
+        });
+    }
+
+
 }
 
 
