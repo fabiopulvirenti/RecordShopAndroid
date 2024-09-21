@@ -108,7 +108,9 @@
             android:text="add album"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editReleaseYear"/>
+            app:layout_constraintTop_toBottomOf="@+id/editReleaseYear"
+            android:onClick="@{clickHandler::onSubmitBtnClicked}"
+            />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
@@ -118,7 +120,9 @@
             android:layout_marginStart="16dp"
             android:contentDescription="@string/searchbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{clickHandler::onBackButtonClicked}ons"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
