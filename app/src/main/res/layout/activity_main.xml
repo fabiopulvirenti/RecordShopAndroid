@@ -3,15 +3,19 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.mainactivity.MainActivity"
-    android:id="@+id/main" >
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.northcoders.recordshopandroid.ui.mainactivity.MainActivityClickHandler" />
+    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.mainactivity.MainActivity">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -25,6 +29,19 @@
             android:padding="0dp"
             tools:listitem="@layout/album_item"
             />
+
+
+     <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/floatingActionButton"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginBottom="16dp"
+         android:layout_marginEnd="16dp"
+         android:onClick="@{clickHandler::onFABClicked}"/>
+
+
 
 
 
