@@ -1,9 +1,10 @@
 package com.northcoders.recordshopandroid.model;
 
+import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.library.baseAdapters.BR;
 
-public class Author {
+public class Author extends BaseObservable {
 
     private long id;
 
@@ -17,7 +18,7 @@ public class Author {
     public Author() {
     }
 
-
+    @Bindable
     public long getId() {
         return id;
     }
@@ -27,6 +28,7 @@ public class Author {
 
     }
 
+    @Bindable
     public String getAuthorName() {
         return authorName;
     }
