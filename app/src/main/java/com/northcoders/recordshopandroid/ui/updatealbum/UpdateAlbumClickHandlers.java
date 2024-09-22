@@ -3,10 +3,15 @@ package com.northcoders.recordshopandroid.ui.updatealbum;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.northcoders.recordshopandroid.model.Album;
 import com.northcoders.recordshopandroid.ui.mainactivity.MainActivity;
 import com.northcoders.recordshopandroid.ui.mainactivity.MainActivityViewModel;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
 
 public class UpdateAlbumClickHandlers {
 
@@ -33,6 +38,17 @@ public class UpdateAlbumClickHandlers {
                 this.album.getReleaseYear()
                 );
 
+
+
+        if(StringUtils.isAnyEmpty(updateAlbum.getAlbumName(), updateAlbum.getGenre(), updateAlbum.getAuthor().getAuthorName())
+        || updateAlbum.getReleaseYear() == 0){
+            Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
+        } else {
+            albumId = album.getId();
+            viewModel.updateAlbum(albumId, updateAlbum);
+            Intent intent = new Intent(this.context, MainActivity.class);
+            this.context.startActivity(intent);
+        }
 
     }
 
