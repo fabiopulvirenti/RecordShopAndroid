@@ -13,7 +13,7 @@
         <variable
             name="authorsList"
             type="com.northcoders.recordshopandroid.model.Album"/>
-        
+
         <variable
             name="clickHandler"
             type="com.northcoders.recordshopandroid.ui.addalbum.AddAlbumClickHandler" />
@@ -32,18 +32,19 @@
             android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="132dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
             android:background="@color/purple_500"
-            android:text="Add an album"
+            android:text="Add Album"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:minHeight="160dp"/>
 
 
 
@@ -66,46 +67,30 @@
         <Spinner
             android:id="@+id/spinnerEditAuthor"
             android:onItemSelected="@{clickHandler::onSelectAuthor}"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="66dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAlbumName"
+            android:minHeight="60dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerGenre"
+            android:onItemSelected="@{clickHandler::onSelectGenre}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editAlbumName"/>
-
-        <EditText
-            android:text="@={album.author.authorName}"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@color/black"
-            android:id="@+id/editAuthor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:hint="Enter Author"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinnerEditAuthor"
-            android:minHeight="60dp"
-            app:layout_constraintVertical_bias="0.059"/>
-
-
-        <EditText
-            android:text="@={album.genre}"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@color/black"
-            android:id="@+id/editGenre"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:hint="Enter genre"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editAuthor"
-            android:minHeight="60dp"
-            app:layout_constraintVertical_bias="0.059"/>
+            android:minHeight="60dp"/>
 
 
         <EditText
@@ -120,7 +105,7 @@
             android:hint="Enter year"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editGenre"
+            app:layout_constraintTop_toBottomOf="@id/spinnerGenre"
             app:layout_constraintVertical_chainStyle="packed"
             android:minHeight="60dp"/>
 
@@ -129,25 +114,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="add album"
+            android:text="Add Album"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editReleaseYear"
             android:onClick="@{clickHandler::onSubmitBtnClicked}"
             />
 
-        <Spinner
-            android:id="@+id/spinnerGenre"
-            android:onItemSelected="@{clickHandler::onSelectGenre}"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="66dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="170dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/submit" />
+
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
