@@ -22,7 +22,7 @@ import com.northcoders.recordshopandroid.service.AlbumRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface{
 
 
     private RecyclerView recyclerView;
@@ -68,12 +68,18 @@ public class MainActivity extends AppCompatActivity {
     private void displayAlbumInRecyclerView() {
 
         recyclerView = binding.albumRecyclerView;
-        albumAdapter = new AlbumAdapter(this, albumList);
+        albumAdapter = new AlbumAdapter(this, albumList,this);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         albumAdapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }
 
