@@ -3,9 +3,13 @@ package com.northcoders.recordshopandroid.ui.updatealbum;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.northcoders.recordshopandroid.model.Album;
+import com.northcoders.recordshopandroid.model.Author;
+import com.northcoders.recordshopandroid.model.Genre;
+import com.northcoders.recordshopandroid.ui.addauthor.AddAuthorActivity;
 import com.northcoders.recordshopandroid.ui.mainactivity.MainActivity;
 import com.northcoders.recordshopandroid.ui.mainactivity.MainActivityViewModel;
 
@@ -66,5 +70,23 @@ public class UpdateAlbumClickHandlers {
         Intent intent = new Intent(this.context, MainActivity.class);
 
         this.context.startActivity(intent);
+    }
+
+    //Spinners
+
+    public void onSelectAuthor(AdapterView<?> adapterView, View view, int i, long l) {
+        Author author = (Author) adapterView.getItemAtPosition(i);
+        if(author.getId() != 0) {
+            this.album.setAuthor(author);
+        } else {
+            Intent intent = new Intent(context, AddAuthorActivity.class);
+            context.startActivity(intent);
+        }
+
+    }
+
+    public void onSelectGenre(AdapterView<?> adapterView, View view, int i, long l) {
+        Genre genre = (Genre) adapterView.getItemAtPosition(i);
+        this.album.setGenre(genre.name());
     }
 }
