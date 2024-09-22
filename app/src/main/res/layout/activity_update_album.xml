@@ -8,6 +8,10 @@
         <variable
             name="album"
             type="com.northcoders.recordshopandroid.model.Album" />
+
+        <variable
+            name="clickHandler"
+            type="com.northcoders.recordshopandroid.ui.updatealbum.UpdateAlbumClickHandlers" />
     </data>
 
 

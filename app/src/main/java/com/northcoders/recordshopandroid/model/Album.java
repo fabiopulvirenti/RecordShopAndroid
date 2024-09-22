@@ -22,7 +22,7 @@ public class Album extends BaseObservable implements Parcelable {
     private long
             releaseYear;
 
-    public Album(long id, String albumName, Author author, String genre, int releaseYear) {
+    public Album(long id, String albumName, Author author, String genre, long releaseYear) {
         this.id = id;
         this.albumName = albumName;
         this.author = author;
@@ -111,11 +111,11 @@ public class Album extends BaseObservable implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeLong(id);
-        parcel.writeString(albumName);
-        //parcel.writeValue(author);
-        parcel.writeString(genre);
-        parcel.writeLong(releaseYear);
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(albumName);
+        //dest.writeValue(author);
+        dest.writeString(genre);
+        dest.writeLong(releaseYear);
     }
 }
