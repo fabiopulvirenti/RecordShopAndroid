@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.addalbum.AddNewAlbumActivity"
-        app:layout_constraintTop_toTopOf="@id/editAuthor"
-        app:layout_constraintBottom_toTopOf="@id/editAuthor">
+        app:layout_constraintTop_toTopOf="@id/spinnerEditAuthor"
+        app:layout_constraintBottom_toTopOf="@id/spinnerEditAuthor">
 
 
 
