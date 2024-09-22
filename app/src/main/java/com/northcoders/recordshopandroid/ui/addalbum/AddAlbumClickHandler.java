@@ -1,4 +1,4 @@
-package com.northcoders.recordshopandroid.ui.mainactivity.addalbum;
+package com.northcoders.recordshopandroid.ui.addalbum;
 
 import android.content.Context;
 import android.content.Intent;

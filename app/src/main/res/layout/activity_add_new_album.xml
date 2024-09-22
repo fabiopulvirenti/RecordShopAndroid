@@ -12,13 +12,13 @@
         
         <variable
             name="clickHandler"
-            type="com.northcoders.recordshopandroid.ui.mainactivity.addalbum.AddAlbumClickHandler" />
+            type="com.northcoders.recordshopandroid.ui.addalbum.AddAlbumClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.mainactivity.addalbum.AddNewAlbumActivity"
+        tools:context=".ui.addalbum.AddNewAlbumActivity"
         app:layout_constraintTop_toTopOf="@id/editAuthor"
         app:layout_constraintBottom_toTopOf="@id/editAuthor">
 

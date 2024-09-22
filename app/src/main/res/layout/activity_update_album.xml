@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="@id/editAuthor"
         app:layout_constraintTop_toTopOf="@id/editAuthor"
-        tools:context=".ui.mainactivity.updatealbum.UpdateAlbumActivity">
+        tools:context=".ui.updatealbum.UpdateAlbumActivity">
 
         <EditText
             android:id="@+id/editText"

@@ -1,4 +1,4 @@
-package com.northcoders.recordshopandroid.ui.mainactivity.updatealbum;
+package com.northcoders.recordshopandroid.ui.updatealbum;
 
 import android.os.Bundle;
 
