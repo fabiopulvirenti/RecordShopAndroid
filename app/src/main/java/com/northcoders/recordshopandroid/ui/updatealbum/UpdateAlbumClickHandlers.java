@@ -16,9 +16,9 @@ import java.util.Objects;
 public class UpdateAlbumClickHandlers {
 
 
-    private Album album;
-    private Context context;
-    private MainActivityViewModel viewModel;
+    private final Album album;
+    private final Context context;
+    private final MainActivityViewModel viewModel;
     private long albumId;
 
     public UpdateAlbumClickHandlers(Album album, Context context, MainActivityViewModel viewModel) {
@@ -28,20 +28,19 @@ public class UpdateAlbumClickHandlers {
 
     }
 
-    public void onSubmitBtnClicked(View view){
+    public void onSubmitBtnClicked(View view) {
 
-        Album updateAlbum= new Album(
+        Album updateAlbum = new Album(
                 this.album.getId(),
                 this.album.getAlbumName(),
                 this.album.getAuthor(),
                 this.album.getGenre(),
                 this.album.getReleaseYear()
-                );
+        );
 
 
-
-        if(StringUtils.isAnyEmpty(updateAlbum.getAlbumName(), updateAlbum.getGenre(), updateAlbum.getAuthor().getAuthorName())
-        || updateAlbum.getReleaseYear() == 0){
+        if (StringUtils.isAnyEmpty(updateAlbum.getAlbumName(), updateAlbum.getGenre(), updateAlbum.getAuthor().getAuthorName())
+                || updateAlbum.getReleaseYear() == 0) {
             Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
         } else {
             albumId = album.getId();
@@ -52,12 +51,17 @@ public class UpdateAlbumClickHandlers {
 
     }
 
-    public void onDeleteBtnClicked(View view ){
+    public void onDeleteBtnClicked(View view) {
+
+        albumId = album.getId();
+        this.viewModel.deleteAlbum(albumId);
+        Intent intent = new Intent(this.context, MainActivity.class);
+        this.context.startActivity(intent);
 
     }
 
-    public void onBackButtonClicked(View view ){
-        Intent intent =new Intent(this.context, MainActivity.class);
+    public void onBackButtonClicked(View view) {
+        Intent intent = new Intent(this.context, MainActivity.class);
 
         this.context.startActivity(intent);
     }
