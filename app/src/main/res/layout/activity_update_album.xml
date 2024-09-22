@@ -18,21 +18,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@id/editAuthor"
-        app:layout_constraintTop_toTopOf="@id/editAuthor"
+        app:layout_constraintBottom_toTopOf="@id/spinnerEditAuthor"
+        app:layout_constraintTop_toTopOf="@id/spinnerEditAuthor"
         tools:context=".ui.updatealbum.UpdateAlbumActivity">
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="132dp"
+            android:minHeight="160dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
             android:background="@color/purple_500"
-            android:text="Update an album"
+            android:text="Album Details"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -53,36 +54,33 @@
             app:layout_constraintTop_toBottomOf="@id/editText"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <EditText
-            android:id="@+id/editAuthor"
+        <Spinner
+            android:id="@+id/spinnerEditAuthor"
+            android:onItemSelected="@{clickHandler::onSelectAuthor}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="28dp"
-            android:hint="Enter author"
-            android:minHeight="60dp"
-            android:text="@={album.author.authorName}"
-            android:textColor="@color/black"
-            android:textColorHint="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editAlbumName"
-            app:layout_constraintVertical_chainStyle="packed" />
+            android:minHeight="60dp"/>
 
-        <EditText
-            android:id="@+id/editGenre"
+        <Spinner
+            android:id="@+id/spinnerGenre"
+            android:onItemSelected="@{clickHandler::onSelectGenre}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginBottom="28dp"
-            android:hint="Enter genre"
-            android:minHeight="60dp"
-            android:text="@={album.genre}"
-            android:textColor="@color/black"
-            android:textColorHint="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editAuthor"
-            app:layout_constraintVertical_bias="0.059" />
+            app:layout_constraintTop_toBottomOf="@id/spinnerEditAuthor"
+            android:minHeight="60dp"/>
 
         <EditText
             android:id="@+id/editReleaseYear"
@@ -97,34 +95,52 @@
             android:textColorHint="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editGenre"
+            app:layout_constraintTop_toBottomOf="@id/spinnerGenre"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:onClick="@{clickHandler::onSubmitBtnClicked}"
-            android:text="Update Book"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editReleaseYear" />
 
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:onClick="@{clickHandler::onDeleteBtnClicked}"
-            android:text="Delete Book"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/submit"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/editReleaseYear"
+            android:gravity="center"
+            >
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:onClick="@{clickHandler::onSubmitBtnClicked}"
+                android:text="Update"
+                app:icon="@android:drawable/ic_popup_sync"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
 
-            />
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="15dp"
+                />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:onClick="@{clickHandler::onDeleteBtnClicked}"
+                android:text="Delete"
+                app:icon="@android:drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="50dp"
+                />
+
+        </LinearLayout>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
@@ -137,6 +153,8 @@
             android:src="@android:drawable/ic_menu_revert"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
