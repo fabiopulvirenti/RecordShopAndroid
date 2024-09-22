@@ -1,11 +1,15 @@
 package com.northcoders.recordshopandroid.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.northcoders.recordshopandroid.BR;
 
-public class Album extends BaseObservable {
+public class Album extends BaseObservable implements Parcelable {
 
     private long id;
 
@@ -30,6 +34,26 @@ public class Album extends BaseObservable {
         this.author = new Author(1, "");
     }
 
+
+    protected Album(Parcel in) {
+        id = in.readLong();
+        albumName = in.readString();
+        //author=in.readValue(Author.class.getClassLoader());
+        genre = in.readString();
+        releaseYear = in.readLong();
+    }
+
+    public static final Creator<Album> CREATOR = new Creator<Album>() {
+        @Override
+        public Album createFromParcel(Parcel in) {
+            return new Album(in);
+        }
+
+        @Override
+        public Album[] newArray(int size) {
+            return new Album[size];
+        }
+    };
 
     @Bindable
     public long getId() {
@@ -79,5 +103,19 @@ public class Album extends BaseObservable {
     public void setReleaseYear(long releaseYear) {
         this.releaseYear = releaseYear;
         notifyPropertyChanged(BR.releaseYear);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeLong(id);
+        parcel.writeString(albumName);
+        //parcel.writeValue(author);
+        parcel.writeString(genre);
+        parcel.writeLong(releaseYear);
     }
 }
