@@ -1,6 +1,7 @@
 package com.northcoders.recordshopandroid.service;
 
 import com.northcoders.recordshopandroid.model.Album;
+import com.northcoders.recordshopandroid.model.Author;
 
 import java.util.List;
 
@@ -25,7 +26,6 @@ public interface AlbumApiService {
 
     @DELETE("albums/{id}")
     Call<String> deleteAlbum(@Path("id") long id);
-
 
 
 }

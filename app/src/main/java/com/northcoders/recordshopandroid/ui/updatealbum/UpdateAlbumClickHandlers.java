@@ -43,9 +43,11 @@ public class UpdateAlbumClickHandlers {
                 || updateAlbum.getReleaseYear() == 0) {
             Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
         } else {
+            Intent intent = new Intent(this.context, MainActivity.class);
+
             albumId = album.getId();
             viewModel.updateAlbum(albumId, updateAlbum);
-            Intent intent = new Intent(this.context, MainActivity.class);
+
             this.context.startActivity(intent);
         }
 
@@ -53,9 +55,9 @@ public class UpdateAlbumClickHandlers {
 
     public void onDeleteBtnClicked(View view) {
 
+        Intent intent = new Intent(this.context, MainActivity.class);
         albumId = album.getId();
         this.viewModel.deleteAlbum(albumId);
-        Intent intent = new Intent(this.context, MainActivity.class);
         this.context.startActivity(intent);
 
     }

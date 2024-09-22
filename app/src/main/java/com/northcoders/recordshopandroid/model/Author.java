@@ -1,10 +1,13 @@
 package com.northcoders.recordshopandroid.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
 
-public class Author extends BaseObservable {
+public class Author extends BaseObservable implements Parcelable {
 
     private long id;
 
@@ -17,6 +20,23 @@ public class Author extends BaseObservable {
 
     public Author() {
     }
+
+    protected Author(Parcel in) {
+        id = in.readLong();
+        authorName = in.readString();
+    }
+
+    public static final Creator<Author> CREATOR = new Creator<Author>() {
+        @Override
+        public Author createFromParcel(Parcel in) {
+            return new Author(in);
+        }
+
+        @Override
+        public Author[] newArray(int size) {
+            return new Author[size];
+        }
+    };
 
     @Bindable
     public long getId() {
@@ -35,5 +55,22 @@ public class Author extends BaseObservable {
 
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(authorName);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.getAuthorName();
     }
 }

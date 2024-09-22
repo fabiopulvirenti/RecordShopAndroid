@@ -1,6 +1,7 @@
 package com.northcoders.recordshopandroid.ui.mainactivity;
 
 import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -18,11 +19,12 @@ import com.northcoders.recordshopandroid.R;
 import com.northcoders.recordshopandroid.databinding.ActivityMainBinding;
 import com.northcoders.recordshopandroid.model.Album;
 import com.northcoders.recordshopandroid.service.AlbumRepository;
+import com.northcoders.recordshopandroid.ui.updatealbum.UpdateAlbumActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewInterface{
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
 
     private RecyclerView recyclerView;
@@ -80,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     @Override
     public void onItemClick(int position) {
 
+        Intent intent = new Intent(this, UpdateAlbumActivity.class);
+        intent.putExtra(UpdateAlbumActivity.ALBUM_KEY, this.albumList.get(position) );
+        this.startActivity(intent);
     }
 }
 

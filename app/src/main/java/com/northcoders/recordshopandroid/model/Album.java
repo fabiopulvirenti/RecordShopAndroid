@@ -31,14 +31,13 @@ public class Album extends BaseObservable implements Parcelable {
     }
 
     public Album() {
-        this.author = new Author(1, "");
     }
 
 
     protected Album(Parcel in) {
         id = in.readLong();
         albumName = in.readString();
-        //author=in.readValue(Author.class.getClassLoader());
+        author=in.readParcelable(Author.class.getClassLoader(), Author.class);
         genre = in.readString();
         releaseYear = in.readLong();
     }
@@ -114,7 +113,7 @@ public class Album extends BaseObservable implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeLong(id);
         dest.writeString(albumName);
-        //dest.writeValue(author);
+        dest.writeParcelable(author, flags);
         dest.writeString(genre);
         dest.writeLong(releaseYear);
     }

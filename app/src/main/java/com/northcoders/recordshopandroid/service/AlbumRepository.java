@@ -28,7 +28,7 @@ public class AlbumRepository {
 
 
     public MutableLiveData<List<Album>>getMutableLiveData(){
-        AlbumApiService albumApiService= RetrofitInstance.getService();
+        AlbumApiService albumApiService= RetrofitInstance.getAlbumApiService();
         Call<List<Album>> call = albumApiService.getAllAlbums();
 
         call.enqueue(new Callback<List<Album>>() {
@@ -50,7 +50,7 @@ public class AlbumRepository {
     }
 
     public void addNewAlbum(Album albumToAdd){
-        AlbumApiService apiService = RetrofitInstance.getService();
+        AlbumApiService apiService = RetrofitInstance.getAlbumApiService();
         Call<Album> call = apiService.addNewAlbum(albumToAdd);
 
         call.enqueue(new Callback<Album>() {
@@ -76,7 +76,7 @@ public class AlbumRepository {
     }
 
     public void updateAlbum(Long id, Album album){
-        AlbumApiService apiService = RetrofitInstance.getService();
+        AlbumApiService apiService = RetrofitInstance.getAlbumApiService();
         Call<Album> call = apiService.updateAlbum(id,album);
 
         call.enqueue(
@@ -102,7 +102,7 @@ public class AlbumRepository {
     }
 
     public void deleteAlbum(Long id){
-        AlbumApiService apiService = RetrofitInstance.getService();
+        AlbumApiService apiService = RetrofitInstance.getAlbumApiService();
         Call<String> call = apiService.deleteAlbum(id);
 
         call.enqueue(new Callback<String>() {
@@ -124,6 +124,7 @@ public class AlbumRepository {
             }
         });
     }
+
 
 
 }
