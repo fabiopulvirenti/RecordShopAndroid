@@ -13,6 +13,7 @@ import com.northcoders.recordshopandroid.R;
 import com.northcoders.recordshopandroid.databinding.AlbumItemBinding;
 import com.northcoders.recordshopandroid.model.Album;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumItemViewHolder> {
@@ -53,6 +54,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumItemVie
     @Override
     public int getItemCount() {
         return albumItems.size();
+    }
+
+
+
+    public void setFilteredList(ArrayList<Album> filteredAlbumList) {
+
+        this.albumItems =filteredAlbumList;
+        notifyDataSetChanged();
     }
 
     public static class AlbumItemViewHolder extends RecyclerView.ViewHolder{

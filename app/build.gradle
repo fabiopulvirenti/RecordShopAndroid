@@ -48,7 +48,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'org.apache.commons:commons-lang3:3.17.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-
+//    implementation 'androidx.appcompat:appcompat:1.7.0'
+//    implementation 'androidx.appcompat:appcompat-resources:1.7.0'
 
 
 
